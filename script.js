@@ -24,10 +24,16 @@ window.addEventListener("load", () => {
 
 function toggleMenu() {
   nav?.classList.toggle("open");
+  const menuButton = document.querySelector(".menu-btn");
+  if (menuButton && nav) {
+    menuButton.setAttribute("aria-expanded", nav.classList.contains("open") ? "true" : "false");
+  }
 }
 
 function closeMenu() {
   nav?.classList.remove("open");
+  const menuButton = document.querySelector(".menu-btn");
+  if (menuButton) menuButton.setAttribute("aria-expanded", "false");
 }
 
 function scrollToSection(id) {
@@ -212,3 +218,18 @@ function submitForm(event) {
     });
   }
 })();
+
+
+/* Extra responsive menu safety */
+document.addEventListener("click", (event) => {
+  const clickedInsideHeader = event.target.closest("#mainHeader");
+  if (!clickedInsideHeader) closeMenu();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1100) closeMenu();
+});
