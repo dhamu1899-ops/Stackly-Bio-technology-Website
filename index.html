@@ -310,7 +310,7 @@
         </div>
 
         <form class="contact-form reveal" onsubmit="submitForm(event)">
-          <input type="text" placeholder="Your Name" required>
+          <input type="text" placeholder="Your Name" pattern="[A-Za-z\s]+" title="Please enter letters only" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" required>
           <input type="email" placeholder="Email Address" required>
           <select required>
             <option value="">Select Service</option>
@@ -358,7 +358,7 @@
         </div>
 
         <div class="footer-col">
-          <h3>Social</h3>
+          <h3>Social media</h3>
           <button type="button" onclick="open404()">Facebook</button>
           <button type="button" onclick="open404()">Twitter / X</button>
           <button type="button" onclick="open404()">LinkedIn</button>
