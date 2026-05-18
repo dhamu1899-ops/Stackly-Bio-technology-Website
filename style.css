@@ -293,11 +293,14 @@ body.dark-mode .research-premium-card{
   border-color:var(--premium-border);
 }
 
-body.dark-mode h1,
+
 body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4{
   color:var(--text-main) !important;
+}
+body.dark-mode h1{
+  color:varblue(--text-main) !important;
 }
 
 body.dark-mode p{
